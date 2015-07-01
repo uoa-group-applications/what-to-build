@@ -1,0 +1,10 @@
+
+git remote add for-review `git config --get remote.origin.url`
+git remote add for-draft `git config --get remote.origin.url`
+
+git config remote.for-review.push HEAD:refs/for/develop
+git config remote.for-draft.push HEAD:refs/drafts/develop
+
+curl -Lko .git/hooks/commit-msg https://gerrit.dev.auckland.ac.nz/tools/hooks/commit-msg
+chmod ug+x .git/hooks/commit-msg
+
